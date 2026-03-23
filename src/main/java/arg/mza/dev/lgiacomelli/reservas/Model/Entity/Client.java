@@ -2,8 +2,14 @@ package arg.mza.dev.lgiacomelli.reservas.Model.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class Client extends Base {
 
     private String firstName;
@@ -13,7 +19,7 @@ public class Client extends Base {
     private String email;
 
     @OneToMany(mappedBy = "client")
-    private Booking booking;
+    private List<Booking> bookings;
 
 
 

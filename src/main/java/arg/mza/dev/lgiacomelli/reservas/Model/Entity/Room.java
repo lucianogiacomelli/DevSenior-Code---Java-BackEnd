@@ -3,9 +3,14 @@ package arg.mza.dev.lgiacomelli.reservas.Model.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
-
+@Getter
+@Setter
 public class Room extends Base{
     private Integer roomNumber;
     private Integer floorNumber;
@@ -14,6 +19,6 @@ public class Room extends Base{
 
 
     @OneToMany(mappedBy = "room")
-    private Booking booking;
+    private List<Booking> bookings;
 
 }
