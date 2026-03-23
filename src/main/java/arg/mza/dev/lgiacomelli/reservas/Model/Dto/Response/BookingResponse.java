@@ -1,4 +1,9 @@
 package arg.mza.dev.lgiacomelli.reservas.Model.Dto.Response;
 
-public record BookingResponse() {
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public record BookingResponse(Long id, LocalDateTime createdAt, LocalDateTime deletedAt,
+                              LocalDate checkInDate, LocalDate checkOutDate,
+                              Long client, Long room) {
 }
