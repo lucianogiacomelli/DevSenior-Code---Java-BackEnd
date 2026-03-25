@@ -34,7 +34,7 @@ public class ClientService implements IClientService {
         client.setLastName(clientRequest.lastName());
         return clientRepository.save(client);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public Client getClientById(Long id) {
         Optional <Client> clientOptional = clientRepository.findById(id);
@@ -44,7 +44,7 @@ public class ClientService implements IClientService {
         Client client = clientOptional.get();
         return client;
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<Client> getAllClients() {
         List <Client> clients = clientRepository.findAll();
