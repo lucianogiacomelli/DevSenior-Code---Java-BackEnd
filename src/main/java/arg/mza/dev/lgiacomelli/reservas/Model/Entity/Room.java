@@ -14,7 +14,6 @@ import java.util.List;
 public class Room extends Base{
     private Integer roomNumber;
     private Integer floorNumber;
-    private Integer size;
     private RoomType roomType;
 
 
