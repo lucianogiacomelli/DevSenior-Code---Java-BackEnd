@@ -15,7 +15,7 @@ public class Client extends Base {
     private String firstName;
     private String lastName;
     private Integer phone;
-    private Integer DNI;
+    private Integer dni;
     private String email;
 
     @OneToMany(mappedBy = "client")

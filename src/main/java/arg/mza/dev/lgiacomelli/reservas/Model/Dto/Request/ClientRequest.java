@@ -2,7 +2,7 @@ package arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request;
 
 import jakarta.validation.constraints.*;
 
-public record ClientRquest(
+public record ClientRequest(
 
         @NotEmpty(message = "The first name can not be empty")
         String firtName,
