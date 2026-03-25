@@ -1,11 +1,11 @@
-package arg.mza.dev.lgiacomelli.reservas.Service.Interface;
+package arg.mza.dev.lgiacomelli.reservas.Service.Implementation;
 
 import arg.mza.dev.lgiacomelli.reservas.Exception.Generics.ResourceAlreadyExistsException;
 import arg.mza.dev.lgiacomelli.reservas.Exception.Generics.ResourceNotFoundException;
 import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request.ClientRequest;
 import arg.mza.dev.lgiacomelli.reservas.Model.Entity.Client;
 import arg.mza.dev.lgiacomelli.reservas.Repository.ClientRepository;
-import arg.mza.dev.lgiacomelli.reservas.Service.Implementation.IClientService;
+import arg.mza.dev.lgiacomelli.reservas.Service.Interface.IClientService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

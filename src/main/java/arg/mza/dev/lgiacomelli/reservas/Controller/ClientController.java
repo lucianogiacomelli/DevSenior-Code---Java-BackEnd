@@ -5,7 +5,7 @@ import arg.mza.dev.lgiacomelli.reservas.Mapper.ClientMapper;
 import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request.ClientRequest;
 import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Response.ClientResponse;
 import arg.mza.dev.lgiacomelli.reservas.Model.Entity.Client;
-import arg.mza.dev.lgiacomelli.reservas.Service.Implementation.IClientService;
+import arg.mza.dev.lgiacomelli.reservas.Service.Interface.IClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

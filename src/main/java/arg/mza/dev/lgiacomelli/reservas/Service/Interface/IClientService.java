@@ -1,4 +1,4 @@
-package arg.mza.dev.lgiacomelli.reservas.Service.Implementation;
+package arg.mza.dev.lgiacomelli.reservas.Service.Interface;
 
 import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request.ClientRequest;
 import arg.mza.dev.lgiacomelli.reservas.Model.Entity.Client;
