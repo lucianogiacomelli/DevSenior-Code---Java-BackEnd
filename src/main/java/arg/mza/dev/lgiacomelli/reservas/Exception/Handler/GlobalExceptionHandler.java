@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
+    @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiError> handleResourceNotFound(
             ResourceNotFoundException ex, WebRequest request) {
         log.warn("Recurso no encontrado: {}", ex.getMessage());

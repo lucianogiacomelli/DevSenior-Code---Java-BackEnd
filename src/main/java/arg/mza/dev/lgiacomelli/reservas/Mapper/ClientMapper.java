@@ -15,7 +15,7 @@ public class ClientMapper {
                 c.getLastName(),
                 c.getPhone(),
                 c.getEmail(),
-                c.getDNI()
+                c.getDni()
         );
     }
 }
