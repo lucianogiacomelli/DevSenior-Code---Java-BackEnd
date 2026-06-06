@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface IClientService {
     Client clientRegistration (ClientRequest clientRequest);
     Client getClientById (Long id);

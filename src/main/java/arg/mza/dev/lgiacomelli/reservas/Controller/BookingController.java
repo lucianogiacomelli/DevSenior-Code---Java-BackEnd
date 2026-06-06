@@ -1,16 +1,14 @@
 package arg.mza.dev.lgiacomelli.reservas.Controller;
 
 import arg.mza.dev.lgiacomelli.reservas.Mapper.BookingMapper;
+import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request.BookingRecord;
 import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Response.BookingResponse;
 import arg.mza.dev.lgiacomelli.reservas.Model.Entity.Booking;
 import arg.mza.dev.lgiacomelli.reservas.Service.Interface.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,7 +39,19 @@ public class BookingController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    
+    @PostMapping("/create")
+    public ResponseEntity<?> createBooking(@RequestBody BookingRecord bookingRecord){
+        Booking booking = bookingService.createBooking(bookingRecord);
+        BookingResponse response = BookingMapper.toResponse(booking);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @DeleteMapping("/delete/{bookingId}")
+    public ResponseEntity<?> deleteBooking(@PathVariable Long bookingId){
+        Booking booking = bookingService.deleteBooking(bookingId);
+        BookingResponse bookingResponse = BookingMapper.toResponse(booking);
+        return ResponseEntity.status(HttpStatus.OK).body(bookingResponse);
+    }
 
 
 

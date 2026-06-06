@@ -9,5 +9,4 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     Optional<Client> findByDni(Integer Dni);
-
 }
