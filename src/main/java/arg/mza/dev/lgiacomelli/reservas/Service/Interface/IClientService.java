@@ -10,6 +10,7 @@ public interface IClientService {
     Client clientRegistration (ClientRequest clientRequest);
     Client getClientById (Long id);
     List<Client> getAllClients();
+    Client deleteClient(Long id);
 
 
 }

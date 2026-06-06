@@ -1,14 +1,17 @@
 package arg.mza.dev.lgiacomelli.reservas.Service.Implementation;
 
 import arg.mza.dev.lgiacomelli.reservas.Exception.Generics.ResourceAlreadyExistsException;
+import arg.mza.dev.lgiacomelli.reservas.Exception.Generics.ResourceInvalidException;
 import arg.mza.dev.lgiacomelli.reservas.Exception.Generics.ResourceNotFoundException;
 import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request.ClientRequest;
 import arg.mza.dev.lgiacomelli.reservas.Model.Entity.Client;
 import arg.mza.dev.lgiacomelli.reservas.Repository.ClientRepository;
 import arg.mza.dev.lgiacomelli.reservas.Service.Interface.IClientService;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +35,7 @@ public class ClientService implements IClientService {
         client.setEmail(clientRequest.email());
         client.setFirstName(clientRequest.firtName());
         client.setLastName(clientRequest.lastName());
+        client.setCreatedAt(LocalDateTime.now());
         return clientRepository.save(client);
     }
     @Transactional(readOnly = true)
@@ -52,5 +56,20 @@ public class ClientService implements IClientService {
             throw new ResourceNotFoundException("No client exist in the DB.");
         }
         return clients;
+    }
+
+    @Transactional
+    @Override
+    public Client deleteClient(Long clientId){
+        Optional <Client> clientOptional = clientRepository.findById(clientId);
+        if(clientOptional.isEmpty()){
+            throw new ResourceNotFoundException("The client with ID: "+clientId+" does not exist in the DB. ");
+        }
+        Client client = clientOptional.get();
+        if(!client.getEstado()){
+            throw new ResourceInvalidException("The client with ID"+clientId+" is already deactivated.");
+        }
+        client.setEstado(false);
+        client.setDeletedAt(LocalDateTime.now());
     }
 }
