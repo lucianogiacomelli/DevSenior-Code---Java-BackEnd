@@ -70,5 +70,6 @@ public class ClientService implements IClientService {
         }
         client.setEstado(false);
         client.setDeletedAt(LocalDateTime.now());
+        return clientRepository.save(client);
     }
 }
