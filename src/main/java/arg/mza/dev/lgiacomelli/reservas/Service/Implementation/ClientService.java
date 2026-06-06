@@ -35,7 +35,6 @@ public class ClientService implements IClientService {
         client.setEmail(clientRequest.email());
         client.setFirstName(clientRequest.firtName());
         client.setLastName(clientRequest.lastName());
-        client.setCreatedAt(LocalDateTime.now());
         return clientRepository.save(client);
     }
     @Transactional(readOnly = true)

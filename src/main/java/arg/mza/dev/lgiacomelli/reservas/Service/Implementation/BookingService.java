@@ -86,8 +86,6 @@ public class BookingService implements IBookingService {
         booking.setClient(client);
         booking.setCheckInDate(bookingRecord.checkInDate());
         booking.setCheckOutDate(bookingRecord.checkOutDate());
-        booking.setCreatedAt(LocalDateTime.now());
-
         return bookingRepository.save(booking);
     }
 

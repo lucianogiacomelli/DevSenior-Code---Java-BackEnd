@@ -66,7 +66,6 @@ public class RoomService implements IRoomService {
         room.setRoomNumber(roomRequest.roomNumber());
         room.setRoomType(roomRequest.roomType());
         room.setFloorNumber(roomRequest.floorNumber());
-        room.setCreatedAt(LocalDateTime.now());
         return roomRepository.save(room);
     }
 
