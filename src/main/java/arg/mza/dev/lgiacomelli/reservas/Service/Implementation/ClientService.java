@@ -7,7 +7,6 @@ import arg.mza.dev.lgiacomelli.reservas.Model.Dto.Request.ClientRequest;
 import arg.mza.dev.lgiacomelli.reservas.Model.Entity.Client;
 import arg.mza.dev.lgiacomelli.reservas.Repository.ClientRepository;
 import arg.mza.dev.lgiacomelli.reservas.Service.Interface.IClientService;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,7 +32,7 @@ public class ClientService implements IClientService {
         client.setDni(clientRequest.DNI());
         client.setPhone(clientRequest.phone());
         client.setEmail(clientRequest.email());
-        client.setFirstName(clientRequest.firtName());
+        client.setFirstName(clientRequest.firstName());
         client.setLastName(clientRequest.lastName());
         return clientRepository.save(client);
     }

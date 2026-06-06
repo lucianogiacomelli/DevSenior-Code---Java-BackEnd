@@ -14,15 +14,11 @@ public class Client extends Base {
 
     private String firstName;
     private String lastName;
-    private Integer phone;
-    private Integer dni;
+    private String phone;
+    private String dni;
     private String email;
 
     @OneToMany(mappedBy = "client")
     private List<Booking> bookings;
-
-
-
-
 
 }

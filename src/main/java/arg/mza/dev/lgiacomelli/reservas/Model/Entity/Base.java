@@ -26,5 +26,8 @@ public abstract class Base  {
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
+        if (this.estado == null) {
+            estado = true;
+        }
     }
 }

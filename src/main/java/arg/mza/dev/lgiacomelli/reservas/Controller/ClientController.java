@@ -27,7 +27,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("/{clientId}")
+    @GetMapping("/get/{clientId}")
     public ResponseEntity<?> getClientById (@PathVariable Long clientId){
         Client client = clientService.getClientById(clientId);
         ClientResponse response = ClientMapper.toResponse(client);
@@ -41,7 +41,7 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @DeleteMapping("delete/{clientId}")
+    @DeleteMapping("/delete/{clientId}")
     public ResponseEntity<?> deleteClient(@PathVariable Long clientId){
         Client client = clientService.deleteClient(clientId);
         ClientResponse clientResponse = ClientMapper.toResponse(client);

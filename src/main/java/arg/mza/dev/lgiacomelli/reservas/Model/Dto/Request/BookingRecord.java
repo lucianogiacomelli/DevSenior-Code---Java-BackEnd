@@ -17,7 +17,7 @@ public record BookingRecord(
 
         @NotNull(message = "The DNI can not be null")
         @Size(min = 6, message = "The DNI must be at least 6 digits")
-        Integer clientDni,
+        String clientDni,
 
         @NotNull
         Long roomId

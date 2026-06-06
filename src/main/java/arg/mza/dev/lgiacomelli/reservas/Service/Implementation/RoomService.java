@@ -58,7 +58,7 @@ public class RoomService implements IRoomService {
     @Transactional
     @Override
     public Room createRoom(RoomRequest roomRequest) {
-        if(roomRepository.getRoomByRoomNumberAndFloorNumber(roomRequest.roomNumber(), roomRequest.floorNumber()).isEmpty()){
+        if(roomRepository.getRoomByRoomNumberAndFloorNumber(roomRequest.roomNumber(), roomRequest.floorNumber()).isPresent()){
             throw new ResourceAlreadyExistsException
                     ("The room in the "+roomRequest.floorNumber()+"th floor, number: "+roomRequest.roomNumber()+" already exist.");
         }

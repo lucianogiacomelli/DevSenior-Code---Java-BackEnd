@@ -29,7 +29,7 @@ public class RoomController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @GetMapping("/{roomId}")
+    @GetMapping("/get/{roomId}")
     public ResponseEntity<?> getRoomById(@PathVariable Long roomId){
         CompleteRoomResponse room = roomService.getRoomById(roomId);
         return ResponseEntity.status(HttpStatus.OK).body(room);
